@@ -1,0 +1,22 @@
+<html>
+ <head><link rel="stylesheet" href="animate.css"></head>   
+<script language='JavaScript'>
+
+
+function getwords(){
+myOutput=document.getElementById('output');
+textbox = document.getElementById('words');
+
+myOutput.innerHTML=textbox.value;
+}
+
+</script>
+<h1 class='animated jello'>
+        I'm Awesome and I know it'
+    </h1>
+<input type="text" id="words" />
+<input type="button" onclick="getwords()" value="Enter" />
+<div id="output">
+</div>
+</body>
+</html> 

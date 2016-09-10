@@ -1,0 +1,68 @@
+<html>
+<head>
+   <link rel="stylesheet" href="..CLASS4/css/bootstrap.css">
+   <script>
+/*
+function addItem(){
+   var arr=new Array();
+var a=document.getElementById('input').value;
+document.getElementById('container').innerHTML= document.getElementById('container').innerHTML + "<br>" +a;
+//div.innerHTML="something";
+
+arr.push(a); // This will be used to push new list items in the array
+localStorage.setItem =("array", JSON.stringify(arr)); // This will be used to save array in the localstorage
+var array = JSON.parse(localStorage.getItem("array"));
+
+       document.getElementById("container").innerHTML = array;
+}
+
+*/
+var listarr=new Array();
+
+function addData(){
+var input = document.getElementById('input').value;
+var div = document.getElementById('container');
+div.innerHTML = div.innerHTML + "<div id='"+ input +"' onclick='removeItem(this.id)'> <input  type='checkbox' id='"+ input +"'  onclick='removeItem(this.id)' > <label>"+input+"</label></div>";
+listarr.push(input);
+saveItem();
+}
+
+function removeItem(id){
+  var div = document.getElementById(id);
+  div.parentNode.removeChild(div);
+}
+function saveItem(){
+       //document.getElementById("result").innerHTML = "start";
+//storing items
+   localStorage.setItem("array", JSON.stringify(listarr));
+
+
+array = JSON.parse(localStorage.getItem("array"));
+
+       document.getElementById("result").innerHTML = array;
+   
+}
+
+function retrieveData(){
+   array = JSON.parse(localStorage.getItem("array"));
+           document.getElementById("result").innerHTML = array;
+}
+
+
+   </script>
+   </head>
+<body onload="retrieveData()">
+
+ <div class="form-group">
+
+<input class="form-control" id="input" type="text" placeholder="Enter Item"/>
+</div>
+
+<input class="btn btn-default" type="submit" value="Add Item" onClick="addData()"/>
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12" id="result">
+</div>
+<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12" id="container">
+</div>
+
+</body>
+</html>
